@@ -1,0 +1,12 @@
+<odoo>
+    <data>
+ 		<record model="ir.module.category" id="farmacia_group_category">
+ 			<field name="name">farmacia</field>
+ 			<field name="description">Grupos del módulo farmacia</field>
+		</record>
+ 		<record id="farmacia_usuarios_group" model="res.groups">
+ 			<field name="name">Farmacéuticos</field>
+ 			<field name="category_id" ref="farmacia_group_category"/>
+ 		</record>
+    </data>
+</odoo>

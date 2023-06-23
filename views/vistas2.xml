@@ -1,0 +1,239 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="vista_farmacia_producto_tree">
+            <field name="name">vista_farmacia_producto_tree</field>
+            <field name="model">farmacia.producto</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="codigo"/>
+                    <field name="nombre_producto"/>
+                    <field name="tipo_producto"/>
+                    <field name="marca"/>
+                    <field name="cantidad"/>
+                    <field name="pa"/>
+                    <field name="presentacion"/>
+                    <field name="dosis"/>
+                    <field name="precio"/>
+                    <field name="receta"/>
+                    <field name="caducidad"/>
+                    <field name="foto"/>
+                    <field name="herencia_ids"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="accion_farmacia_producto_form">
+            <field name="name">Lista de productos</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">farmacia.producto</field>
+            <field name="view_mode">tree,form,kanban</field>
+            <field name="help" type="html">
+                <form>
+                    <sheet>
+                        <div>
+                        <div>
+                            <field name="codigo"/>
+                            <field name="nombre_producto"/>
+                            <field name="tipo_producto"/>
+                            <field name="marca"/>
+                            <field name="cantidad"/>
+                            <field name="presentacion"/>
+                            <field name="dosis"/>
+                            <field name="precio"/>
+                            <field name="caducidad"/>
+                            <field name="foto"/>
+                        </div>
+                        <div>
+                            <field name="pa"/>
+                            <field name="receta"/>
+                        </div>
+                        </div>
+                        <div>
+                            <field name="herencia_ids"/>
+                        </div>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="vista_farmacia_producto_kanban" model="ir.ui.view">
+            <field name="name">vista_farmacia_producto_kanban</field>
+            <field name="model">farmacia.producto</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <field name="id"/>
+                    <field name="nombre_producto"/>
+                    <field name="tipo_producto"/>
+                    <field name="foto"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_global_click">
+
+                                <div class="o_kanban_image">
+                                    <img alt="Portada"
+                                         t-att-src="kanban_image('farmacia.producto', 'foto', record.id.raw_value)"/>
+                                </div>
+
+                                <div class="oe_kanban_details">
+                                    <strong class="o_kanban_record_title">
+                                        <field name="nombre_producto"/>
+                                    </strong>
+                                    <div t-if="record.tipo_producto.value">
+                                        <t t-esc="record.tipo_producto.value"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="vista_farmacia_receta_tree">
+            <field name="name">vista_farmacia_receta_tree</field>
+            <field name="model">farmacia.receta</field>
+            <field name="arch" type="xml">
+                <tree string="LISTADO">
+                    <field name="codigo_receta"/>
+                    <field name="nombre_paciente"/>
+                    <field name="cip"/>
+                    <field name="fecha_nacimiento"/>
+                    <field name="centro"/>
+                    <field name="direccion_centro"/>
+                    <field name="telf"/>
+                    <field name="poblacion"/>
+                    <field name="provincia"/>
+                    <field name="nombre_medico"/>
+                    <field name="nombre_mediacamento"/>
+                    <field name="presentacion"/>
+                    <field name="principio_activo"/>
+                    <field name="posologia"/>
+                    <field name="fecha_caducidad"/>
+                    <field name="fecha_expedicion"/>
+                    <field name="tsi"/>
+                    <field name="formato"/>
+                    <field name="emisor"/>
+                    <field name="tipo_medicamento"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="accion_farmacia_receta_form">
+            <field name="name">Lista de recetas</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">farmacia.receta</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <form string="fromulario de recetas">
+                    <sheet>
+                        <div>
+                            <field name="codigo_receta"/>
+                            <field name="nombre_paciente"/>
+                            <field name="cip"/>
+                            <field name="fecha_nacimiento"/>
+                            <field name="centro"/>
+                            <field name="direccion_centro"/>
+                            <field name="telf"/>
+                            <field name="poblacion"/>
+                            <field name="provincia"/>
+                            <field name="nombre_medico"/>
+                            <field name="nombre_mediacamento"/>
+                            <field name="presentacion"/>
+                            <field name="principio_activo"/>
+                            <field name="posologia"/>
+                            <field name="fecha_caducidad"/>
+                            <field name="fecha_expedicion"/>
+                            <field name="tsi"/>
+                            <field name="formato"/>
+                            <field name="emisor"/>
+                            <field name="tipo_medicamento"/>
+                        </div>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--Las recetas no tienen vista kanban-->
+
+
+        <!--Acciones producto-->
+
+        <record id="action_1" model="ir.actions.act_window">
+            <field name="name">OPCIÓN MENU 1</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">farmacia.producto</field>
+            <field name="view_mode">form</field>
+        </record>
+
+        <record id="action_2" model="ir.actions.act_window">
+            <field name="name">Listado productos farmacia</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">farmacia.producto</field>
+            <field name="view_mode">tree,kanban,form</field>
+        </record>
+        <record id="action_3" model="ir.actions.act_window">
+            <field name="name">Kanban productos</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">farmacia.producto</field>
+            <field name="view_mode">kanban,tree,form</field>
+        </record>
+
+        <!--Acciones receta-->
+
+        <record id="action_4" model="ir.actions.act_window">
+            <field name="name">OPCIÓN MENU 1</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">farmacia.receta</field>
+            <field name="view_mode">form</field>
+        </record>
+
+        <record id="action_5" model="ir.actions.act_window">
+            <field name="name">Listado recetas</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">farmacia.receta</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!--Acciones consulta laboratorios-->
+
+        <record id="action_6" model="ir.actions.act_url">
+            <field name="name">Novartis</field>
+            <field name="url">https://www.novartis.com/es-es/</field>
+            <field name="target">self</field>
+        </record>
+
+        <record id="action_7" model="ir.actions.act_url">
+            <field name="name">KernPharma</field>
+            <field name="url">https://www.kernpharma.com/es</field>
+            <field name="target">self</field>
+        </record>
+
+        <!--- Menú productos  -->
+        <menuitem id="menu_farmacia_raiz" name="farmacia" sequence="1"
+                  web_icon="farmacia,static/description/logofarma.png"/>
+        <menuitem id="menu_farmacia_catalogo" name="Lista de productos" parent="menu_farmacia_raiz" sequence="11"/>
+        <menuitem id="menu_farmacia_productos" name="Alta producto" parent="menu_farmacia_catalogo" sequence="12"
+                  action="action_1"/>
+        <menuitem id="menu_farmacia_productos1" name="Lista" parent="menu_farmacia_catalogo" sequence="13"
+                  action="action_2"/>
+        <menuitem id="menu_farmacia_productos11" name="Consulta kanban" parent="menu_farmacia_catalogo" sequence="14"
+                  action="action_3"/>
+
+        <!--- Menú recetas  -->
+        <menuitem id="menu_farmacia_recetas" name="Recetas" parent="menu_farmacia_raiz" sequence="20"/>
+        <menuitem id="menu_farmacia_recetas12" name="Alta de recetas" parent="menu_farmacia_recetas" sequence="21"
+                  action="action_4"/>
+        <menuitem id="menu_farmacia_recetas121" name="Consulta lista" parent="menu_farmacia_recetas" sequence="22"
+                  action="action_5"/>
+
+
+        <!--- Menú consultas laboratorios  -->
+        <menuitem id="menu_farmacia_laboratorios" name="Consulta laboratorios" parent="menu_farmacia_raiz" sequence="30"/>
+        <menuitem id="menu_farmacia_novartis" name="Novartis" parent="menu_farmacia_laboratorios" sequence="31"
+                  action="action_6"/>
+        <menuitem id="menu_farmacia_kernpharma" name="KernPharma" parent="menu_farmacia_laboratorios" sequence="32"
+                  action="action_7"/>
+
+    </data>
+</odoo>

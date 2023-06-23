@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+farmacia.usuarios,farmacia.usuarios,model_farmacia_producto,farmacia_usuarios_group,1,1,1,1
+farmacia.administrador,farmacia.administrador,model_farmacia_producto,base.group_system,1,1,1,1

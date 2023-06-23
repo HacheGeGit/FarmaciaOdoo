@@ -1,0 +1,48 @@
+<odoo>
+    <data>
+
+        <!--Productos demo-->
+
+        <!--Cosmética-->
+        <record id="object0" model="farmacia.producto">
+            <field name="nombre_producto">Farmabami 26 Almudena Garriga Spray Hidra Confort</field>
+            <field name="foto" type="base64" file="87/static/img/farmabami26.jpg"/>
+            <field name="cantidad">40</field>
+            <field name="dosis">200</field>
+            <field name="marca">Almudena Garriga</field>
+            <field name="tipo_producto">3</field>
+            <field name="precio">8.76</field>
+            <field name="caducidad">2023-07-11</field>
+            <field name="codigo">890765</field>
+        </record>
+
+        <!--Medicamento-->
+        <record id="object1" model="farmacia.producto">
+            <field name="nombre_producto">Paracetamol 1g Cinfa</field>
+            <field name="foto" type="base64" file="87/static/img/paracetamol.jpg"/>
+            <field name="cantidad">40</field>
+            <field name="dosis">1</field>
+            <field name="marca">Cinfa</field>
+            <field name="pa">Paracetamol</field>
+            <field name="presentacion">Polvo efervescente</field>
+            <field name="receta">2</field>
+            <field name="tipo_producto">1</field>
+            <field name="precio">3.45</field>
+            <field name="caducidad">2023-05-21</field>
+            <field name="codigo">850669</field>
+        </record>
+
+        <record id="object3" model="farmacia.producto">
+            <field name="nombre_producto">Cranberola Cis-control Arkopharma 60 cápsulas</field>
+            <field name="foto" type="base64" file="87/static/img/cranbe.jpg"/>
+            <field name="cantidad">40</field>
+            <field name="dosis">60</field>
+            <field name="marca">Arkopharma</field>
+            <field name="tipo_producto">4</field>
+            <field name="precio">14.25</field>
+            <field name="caducidad">2024-04-19</field>
+            <field name="codigo">876537</field>
+          </record>
+
+    </data>
+</odoo>
